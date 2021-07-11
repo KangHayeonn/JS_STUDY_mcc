@@ -4,7 +4,6 @@
 function solution(d, budget) {
     var answer = 0;
     var sum = 0;
-    var count =0;
 
     d.sort((a,b)=> a-b); // 오름차순 정렬
     
@@ -23,8 +22,7 @@ function solution(d, budget) {
 function solution(d, budget) {
     var answer = 0;
     var sum = 0;
-    var count =0;
-
+    
     d.sort((a,b)=> a-b); // 오름차순 정렬
     
     for(var i of d){
