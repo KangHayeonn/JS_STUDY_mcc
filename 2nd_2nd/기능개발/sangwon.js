@@ -3,7 +3,9 @@ function solution(progresses, speeds) {
     var days = [];
     
     for (var i = 0; i < progresses.length; i ++) {
-        days.push(parseInt((100 - progresses[i]) / speeds[i]));
+        var r = (100 - progresses[i]) % speeds[i];
+        
+        days.push(r == 0 ? parseInt((100 - progresses[i]) / speeds[i]) : parseInt((100 - progresses[i]) / speeds[i] + 1));
     } // 남은 날짜 배열로
     
     var max = 0;
@@ -17,9 +19,8 @@ function solution(progresses, speeds) {
             }
         }
         cnt++;
-    })
+    }) //forEach말고 splice도 생각해보자
     answer.push(cnt);
     
     return answer;
 }
-//테케 11번 X
