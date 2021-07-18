@@ -1,0 +1,25 @@
+
+// 최종 
+function solution(numbers, target) {
+    var answer = 0;
+    var MaxN = numbers[0] * numbers.length;
+    var Sum = 1;
+    var Count = 0;
+
+    for(var i = 0; MaxN > target; i++){
+        MaxN = MaxN - numbers[i];
+        Count += 1;
+    }
+
+    if(Count/2 == 1){
+        answer = numbers.length;
+    }else if(Count /2 == 2){
+        for(var j = 1; j < numbers.length; j++){
+            Sum = Sum * j;
+        }
+        answer = Sum;
+    }
+                       
+    //return Count;
+    return answer;
+}
