@@ -1,4 +1,4 @@
-// 3주차 1차시
+// 3주차 2차시
 // 다리를 지나는 트럭
 
 function solution(bridge_length, weight, truck_weights) {
