@@ -1,4 +1,4 @@
-// 3주차 1차시
+// 3주차 2차시
 // 소수찾기
 
 function solution(numbers){
