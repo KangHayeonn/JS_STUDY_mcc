@@ -1,3 +1,6 @@
+//해결 못함
+
+
 function solution(numbers) {
     var i=0,j=0;
     var answer= new Array();
