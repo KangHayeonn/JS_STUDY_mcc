@@ -41,4 +41,27 @@ function solution(lottos, win_nums) {
 // var2 
 
 
-// 작성 중 
+function solution(lottos, win_nums) {
+    var answer = [];
+    
+    var Joker_N = (lottos.filter(x => x === 0)).length;     //0의 개수를 가지고 있음
+    var Num = (lottos.filter(x => win_nums.includes(x))).length;
+    
+    var Top_Rank = (7 - Num) - Joker_N;
+    var Lowest_Rank = (7 - Num);
+
+
+    if(Lowest_Rank == 7){
+        Lowest_Rank = 6;
+    }
+    if(Top_Rank == 7){
+        Top_Rank = 6;
+    }
+    
+
+    answer.push(Top_Rank);
+    answer.push(Lowest_Rank);
+    
+    
+    return answer;
+}
