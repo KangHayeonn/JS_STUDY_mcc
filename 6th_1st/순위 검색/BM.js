@@ -1,53 +1,49 @@
+/*
+    순위 검색 : 두 배열을 입력 받아 조건에 해당하는 개수를 배열로 리턴
+    
+    작성자 : 강병민
+    작성일 : 2021.08.07
+    
+    방안 : 점수 커트라인으로 사람을 분류하고, 조건에 맞는 사람 수 카운트
+*/
+
+
 function solution(info, query) {
     var answer = [];
-    var list = []
+    var list = [];
     
-//    var arr1 = query[3].split(" ").filter(x => x != "and");
-//    var arr2 = arr1.join().replace(/[^0-9]/g,'');
-//arr.splice(0);
-    
-/*
-    var query_N = query[1].replace(/[^0-9]/g,'');
-    console.log(query_N);
-    for(var j = 0;j < info.length; j++) {
-        var info_N = info[j].replace(/[^0-9]/g,'');
-        if(parseInt(info_N) >= parseInt(query_N)) {
-            list.push(info[j]);
-            }
-    }
-
-    console.log(list);
-  */  
-    
-    //for(var i = 0; i < query.length; i++) {
-        var query_N = query[1].replace(/[^0-9]/g,'');
+    for(var i = 0; i < query.length; i++) {
+        list.splice(0);
+        var query_N = query[i].replace(/[^0-9]/g,'');
         for(var j = 0; j < info.length; j++) {
             var info_N = info[j].replace(/[^0-9]/g,'');
             if(parseInt(info_N) >= parseInt(query_N)) {
-                list.push(info[j]);
+                list.push(info[j].split(" ",4));
             }
         }
-    
-    //리스트는 정확하게 들어감 
-    
-    
         //차집합
-        for(var g = 0; g < 4; g++) {
-            if(S_query[g] != list[g])
-        }
-    
-        var S_query = query[1].split(" ").filter(x => x != "and" );
-        var Sol = S_query.filter(x => !list.includes(x));
+        var S_query = query[i].split(" ",7).filter(x => x != "and");
+        answer.push(Sol(S_query,list));
         
+    //z는 점수에 통과한 사람들을 방문
+    // k는 합격자 조건들을 방문
 
-        
-    
-    
-    console.log(S_query);
-    console.log(list);
-    console.log(Sol);
-    
+    }    
     return answer;
-    
-    
+}
+
+
+function Sol(S_query, list) {
+    var x = 0;
+    for(var j = 0 ; j < list.length; j++) {
+        for(var k = 0; k < S_query.length; k++) {
+            if(S_query[k] != list[j][k] && S_query[k] != '-'){
+                list.splice(j,1);
+                j--;
+                break;
+            }
+        }
+    }
+    x = list.length;
+    return x;
 }
